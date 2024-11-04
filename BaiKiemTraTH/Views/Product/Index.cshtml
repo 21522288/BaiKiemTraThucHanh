@@ -1,0 +1,123 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<BaiKiemTraTH.Models.Book>
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3" style="display:flex; justify-content:space-between">
+            <h6 class="m-0 font-weight-bold text-primary">Product table</h6>
+        <button class="btn btn-primary rounded-pill px-3" type="button" onclick="location.href='@Url.Action("NewItem", "Product")'">
+                Add new</button>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.BookName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Quantity)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Price)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Category)
+                        </th>
+                        <th></th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.BookName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Quantity)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Price)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Category)
+                        </th>
+                        <th></th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BookName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Quantity)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Price)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Category)
+                            </td>
+                            <td>
+                                <div style="display:flex; justify-content:space-evenly">
+                                    <button class="btn btn-primary rounded-circle p-2 lh-1" type="button" style="width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;" onclick="location.href='@Url.Action("Detail", "Product", new { id = @item.Id })'">
+                                        <i class="bi bi-eye" width="16" height="16"></i>
+                                    </button>
+                                    <button class="btn btn-primary rounded-circle p-2 lh-1" type="button" style="width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;" onclick="location.href='@Url.Action("Delete", "Product", new { id = @item.Id })'">
+                                            <i class="bi bi-x" width="16" height="16"></i>
+                                        </button>
+                                    
+                                    <button class="btn btn-primary rounded-circle p-2 lh-1" type="button" style="width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;" onclick="location.href='@Url.Action("EditItem", "Product", new { id = @item.Id })'">
+                                        <i class="bi bi-pen" width="16" height="16"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+            <!-- /.container-fluid -->
+          @*   onclick="location.href='@Url.Action("Detail", "Product")'" *@
+
+
+
+
+<!-- Bootstrap core JavaScript-->
+<script src="~/admincustom/vendor/jquery/jquery.min.js"></script>
+<script src="~/admincustom/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="~/admincustom/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="~/admincustom/js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="~/admincustom/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="~/admincustom/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="~/admincustom/js/demo/datatables-demo.js"></script>
+

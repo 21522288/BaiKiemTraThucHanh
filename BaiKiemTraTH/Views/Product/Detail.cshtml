@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewData["Title"] = "Detail";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model BaiKiemTraTH.Models.Book
+<div class="book-container">
+    <h2>Book Details</h2>
+
+    <!-- Book Image -->
+    <div class="book-image">
+        <img src="@Html.DisplayFor(model => model.ImageUrl)" alt="Book Image">
+    </div>
+
+    <!-- Book Details -->
+    <div class="book-details">
+        <div>
+            <label>Book Name:</label>
+            <p>@Html.DisplayFor(model => model.BookName)</p>
+        </div>
+        <div>
+            <label>Author:</label>
+            <p> @Html.DisplayFor(model => model.Author)</p>
+        </div>
+        <div>
+            <label>Quantity:</label>
+            <p> @Html.DisplayFor(model => model.Quantity)</p>
+        </div>
+        <div>
+            <label>Price:</label>
+            <p>@Html.DisplayFor(model => model.Price) VND</p>
+        </div>
+        <div>
+            <label>Category:</label>
+            <p>@Html.DisplayFor(model => model.Category)</p>
+        </div>
+        <div>
+            <label>Publication Date:</label>
+            <p>@Html.DisplayFor(model => model.PublicationDate)</p>
+        </div>
+    </div>
+
+    <!-- Book Description -->
+    <div class="book-description">
+        <label>Description:</label>
+        <p>
+            @Html.DisplayFor(model => model.Description)
+        </p>
+    </div>
+</div>
+
